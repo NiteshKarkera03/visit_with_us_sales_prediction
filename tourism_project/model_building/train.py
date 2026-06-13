@@ -38,9 +38,10 @@ Xtest = pd.read_csv(Xtest_path)
 ytrain = pd.read_csv(ytrain_path)
 ytest = pd.read_csv(ytest_path)
 
-#since we have done onehot encoding when creating the test and train data at the prep stage, no encoding will be done at this stage
+#since we have done onehot encoding when creating the test and train data at the prep stage, no encoding will be done for categorical columns 
+#at this stage
 
-#numeric_features = Xtrain.select_dtypes(include=[np.number]).columns.to_list()
+numeric_features = Xtrain.select_dtypes(include=[np.number]).columns.to_list()
 #categorical_features = [] 
 
 # Set the clas weight to handle class imbalance

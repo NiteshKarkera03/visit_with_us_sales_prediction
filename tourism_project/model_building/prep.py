@@ -16,8 +16,16 @@ DATASET_PATH = "hf://datasets/NiteshKK/visit-with-us-sales-prediction/tourism.cs
 df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
+cols_to_drop = []
+
+if 'CustomerID' in df.columns:
+    cols_to_drop.append('CustomerID')
+
+if 'Unnamed: 0' in df.columns:
+    cols_to_drop.append('Unnamed: 0')
+    
 # Drop unique identifier column (not useful for modeling)
-df.drop(columns=['CustomerID','	Unnamed: 0'], inplace=True)
+df.drop(columns=cols_to_drop, inplace=True)
 
 df["Gender"] = df["Gender"].replace({
     "Fe Male": "Female"

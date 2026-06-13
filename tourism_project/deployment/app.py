@@ -10,6 +10,7 @@ import joblib
 
 model_path = hf_hub_download(
     repo_id="NiteshKK/visit-with-us-sales-prediction",
+    repo_type="dataset",
     filename="best_tourism_sales_model.joblib"
 )
 
